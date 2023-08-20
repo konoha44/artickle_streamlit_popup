@@ -21,12 +21,12 @@ def read_file(file_path: str) -> str:
 def pop_up_window_click(activate: bool = True) -> None:
     """Pop up window overlaping to disable user interaction"""
     if activate:
-        html(read_file("./static/activate_popup_js_injection.html"))
+        html(read_file("./static/activate_popup_js_injection.html"), height=0)
 
     # deactivate and clean url
     else:
-        html(read_file("./static/deactivate_popup_js_injection.html"))
-        html(read_file("./static/clean_url_js_injection.html"))
+        html(read_file("./static/deactivate_popup_js_injection.html"), height=0)
+        html(read_file("./static/clean_url_js_injection.html"), height=0)
 
 
 def pop_up_window() -> str:
