@@ -24,7 +24,7 @@ def long_duration_function(name: str, emoji: str) -> str:
     progress_text += f"\nCounter of interaptions = {st.session_state['counter']}"
     my_bar = st.progress(0, text=progress_text)
     for i in range(1, 11):
-        sleep(1)
+        sleep(SLEEP_DELAY)
         my_bar.progress(i * 10, text=progress_text)
 
     return f" Hello {name}, your favorite emoji is {emoji}!"
