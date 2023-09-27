@@ -3,6 +3,8 @@ from time import sleep
 import streamlit as st
 from streamlit.components.v1 import html
 
+from constants import SLEEP_DELAY
+
 
 def check_if_button_clicked() -> bool:
     button = st.button(
@@ -22,7 +24,7 @@ def long_duration_function(name: str, emoji: str) -> str:
     progress_text += f"\nCounter of interaptions = {st.session_state['counter']}"
     my_bar = st.progress(0, text=progress_text)
     for i in range(1, 11):
-        sleep(0.5)
+        sleep(1)
         my_bar.progress(i * 10, text=progress_text)
 
     return f" Hello {name}, your favorite emoji is {emoji}!"

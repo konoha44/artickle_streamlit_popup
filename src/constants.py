@@ -68,3 +68,5 @@ if st.button(
     if st.button("Re-run"):
         st.experimental_rerun()
 """
+
+SLEEP_DELAY = 1
