@@ -1,36 +1,21 @@
-from utils import long_duration_function, on_click_1_page, warm_up_rerun
 import streamlit as st
+from constants import CODE_FOR_PAGE_1 as code
+from utils import long_duration_function, check_if_button_clicked
 
 st.title("Streamlit Application WithOut Popup")
 
-user_name = st.text_input("Enter your name", "Ivan")
-favorite_emoji = st.selectbox("Select your favorite emoji", ["😀", "😂", "😍", "😎", "🤔"])
-
-if st.button(
-    "Submit",
-    type="primary",
-    use_container_width=True,
-    key="submit",
-    on_click=on_click_1_page,
-):
-    result = long_duration_function(user_name, favorite_emoji)
-    st.success(result, icon="🎉")
-    del st.session_state["counter"]
-
-code = """
-from utils import long_duration_function
-import streamlit as st
-
-st.title("Streamlit Application WithOut Popup")
-
-user_name = st.text_input("Enter your name", "Ivan")
+user_name = st.text_input("Enter your name", "Ivan", key="user_name")
 favorite_emoji = st.selectbox(
-    "Select your favorite emoji", ["😀", "😂", "😍", "😎", "🤔"]
+    "Select your favorite emoji", ["😀", "😂", "😍", "😎", "🤔"], key="favorite_emoji"
 )
 
-if st.button("Submit"):
+# if button has alreade been clicked then st.session_state.get("submit") is not None
+# if button has not been clicked then user has to click on it to define st.session_state.get("submit")
+if check_if_button_clicked():
     result = long_duration_function(user_name, favorite_emoji)
     st.success(result, icon="🎉")
-"""
+    del st.session_state["counter"], st.session_state["computed"]
+
+
 with st.expander("Code of this page"):
     st.code(code.strip(), language="python", line_numbers=False)
