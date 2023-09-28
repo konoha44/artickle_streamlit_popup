@@ -7,7 +7,7 @@ from utils import (
     on_click_2_page,
 )
 
-st.title("Streamlit Application WithOut Popup")
+st.title("Streamlit Application With Popup")
 
 user_name = st.text_input("Enter your name", "Ivan")
 favorite_emoji = st.selectbox("Select your favorite emoji", ["😀", "😂", "😍", "😎", "🤔"])
