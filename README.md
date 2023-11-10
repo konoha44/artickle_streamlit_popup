@@ -7,4 +7,5 @@ Python(Streamlit) + HTML + CSS + JavaScript
 
 ## Links
 Link to Web App: https://isnegirev4popup2artickle.streamlit.app
+
 Link to my Medium Profile : https://medium.com/@ivan.snegirev66
